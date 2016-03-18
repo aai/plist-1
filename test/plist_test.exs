@@ -36,11 +36,7 @@ defmodule PlistTest do
   path = [File.cwd!, "test", "fixture-xml.plist"] |> Path.join
   data = File.read!(path)
 
-  {:ok, handle} = File.open(data, [:ram, :binary])
-  data = Plist.parse(handle)
-
+  data = Plist.parse(data)
   assert Dict.get(data, "String") == "foobar"
-
-  File.close(handle)
  end
 end
