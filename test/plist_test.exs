@@ -22,6 +22,7 @@ defmodule PlistTest do
   data = Plist.parse(handle)
 
   assert Dict.get(data, "String") == "foobar"
+  assert Dict.get(data, "Ampersand") == "Amper & Sand"
   assert Dict.get(data, "Number") == 1234
   assert Dict.get(data, "Float") == 1234.1234
   assert Dict.get(data, "Array") == ["A", "B", "C"]

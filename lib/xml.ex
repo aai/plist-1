@@ -29,6 +29,10 @@ defmodule Plist.XML do
     text |> xmlText(:value) |> :binary.list_to_bin
   end
 
+  defp parse_value(:string, [text | list]) do
+    parse_value(:string, [text]) <> parse_value(:string, list)
+  end
+
   defp parse_value(:date, [text]) do
     parse_value(:string, [text])
   end
